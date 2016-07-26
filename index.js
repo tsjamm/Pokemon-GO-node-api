@@ -61,7 +61,7 @@ app.get('/', function(req, res){
         name: requestLocation || 'Mumbai'
     };
 
-    a.setLocation(location, function (err, loc) {
+    a.SetLocation(location, function (err, loc) {
         if (err) {
             console.log(err);
             res.send(getResponseString(requestLocation,[]));
