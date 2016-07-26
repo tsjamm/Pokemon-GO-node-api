@@ -54,6 +54,7 @@ app.get('/', function(req, res){
         requestLocation = req.query.location;
     } else {
         res.send(getResponseString("Not Specified",[]));
+        return;
     }
 
     var location = {
@@ -65,12 +66,14 @@ app.get('/', function(req, res){
         if (err) {
             console.log(err);
             res.send(getResponseString(requestLocation,[]));
+            return;
         }
 
         a.Heartbeat(function(err,hb) {
             if(err) {
                 console.log(err);
                 res.send(getResponseString(requestLocation,[]));
+                return;
             } else {
 
                 var pokeList = [];
@@ -85,6 +88,7 @@ app.get('/', function(req, res){
                     }
                 }
                 res.send(getResponseString(requestLocation,pokeList));
+                return;
             }
         });
     });
