@@ -21,6 +21,7 @@ app.get('/', function(req, res){
     var requestLocation = ''
     if (req.query.location) {
         requestLocation = req.query.location;
+        console.log('[loc] Request for location: ' + requestLocation);
     } else {
         res.send(getResponseString("Not Specified",[]));
         return;
